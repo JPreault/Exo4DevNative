@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exo4DevNative</title>
+    <style>
+        body {
+            height: 100vh;
+            width: 100vw;
+            display: grid;
+            grid-template-areas:
+                "a a a a a a"
+                "b b b c c c"
+                "d d e e f f";
+        }
+
+        .containSquare {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .square {
+            height: min(20vh, 20vw);
+            width: min(20vh, 20vw);
+            background-color: aquamarine;
+            animation: rotation 4s infinite linear;
+        }
+
+        .reverse-rotation {
+            animation: reverse-rotation 4s infinite linear!important;
+        }
+
+        @keyframes rotation {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(359deg);
+            }
+        }
+
+        @keyframes reverse-rotation {
+            from {
+                transform: rotate(359deg);
+            }
+            to {
+                transform: rotate(0deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="containSquare" style="grid-area: a;">
+        <div class="square" onclick="reverse(this)"></div>
+    </div>
+    <div class="containSquare" style="grid-area: b;">        
+        <div class="square" onclick="reverse(this)"></div>
+    </div>
+    <div class="containSquare" style="grid-area: c;">
+        <div class="square"  onclick="reverse(this)"></div>
+    </div>
+    <div class="containSquare" style="grid-area: d;">
+        <div class="square"  onclick="reverse(this)"></div>
+    </div>
+    <div class="containSquare" style="grid-area: e;">
+        <div class="square"  onclick="reverse(this)"></div>
+    </div>
+    <div class="containSquare" style="grid-area: f;">
+        <div class="square"  onclick="reverse(this)"></div>
+    </div>
+    <script type="text/javascript">
+        function reverse(el) {
+            console.log(el);
+            el.classList.toggle("reverse-rotation");
+        }
+    </script>        
+</body>
+</html>
